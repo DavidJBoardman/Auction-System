@@ -2,6 +2,9 @@ package auctionSystem;
 
 import java.util.Date;
 
+import users.Buyer;
+import users.Item;
+
 public class Auction {
 	
 	private double startPrice;
@@ -45,8 +48,9 @@ public class Auction {
 		this.status = status;
 	}
 
-	public void placeBid() {
-		
+	public void placeBid(int amt, Buyer who, Date when) {
+		//when you place a bid you need to add the bid 
+		//object to the array of all bids placed on the item
 	}
 	
 	public void verify() {
