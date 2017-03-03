@@ -16,4 +16,9 @@ public final class AuctionDatabase {
         arrayItems[3] = new Item("Iphone");
     }
 
+    
+    
+    public Item[] getArrayItems(){
+    	return arrayItems;
+    }
 }
