@@ -7,11 +7,13 @@ public class Seller extends User{
 		// TODO Auto-generated constructor stub
 	}
 
+	//Check if the user is blocked
 	public boolean isBlocked() {
 		
 		return false; 
 	}
 	
+	//If the user is blocked then they cannot log on
 	public void setBlocked() { 
 		
 	}

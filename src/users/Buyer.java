@@ -6,7 +6,8 @@ public class Buyer extends User{
 		super(username, password);
 	}
 
-	public void victory() {
+	public void victory(Item item) {
+		System.out.println("You have won the action on item : " + item);
 	}
 }
 
