@@ -1,5 +1,7 @@
 package auctionSystem;
 
+import java.util.ArrayList;
+
 import users.Item;
 import users.User;
 
@@ -9,11 +11,12 @@ public final class AuctionDatabase {
 
     public AuctionDatabase() {
         arrayItems = new Item[4];
+        ArrayList<User> items = new ArrayList();
 
-        arrayItems[0] = new Item("Swimming pool");
-        arrayItems[1] = new Item("New £1 coin");
-        arrayItems[2] = new Item("Watch");
-        arrayItems[3] = new Item("Iphone");
+//        arrayItems[0] = new Item("Swimming pool");
+//        arrayItems[1] = new Item("New £1 coin");
+//        arrayItems[2] = new Item("Watch");
+//        arrayItems[3] = new Item("Iphone");
     }
 
     
