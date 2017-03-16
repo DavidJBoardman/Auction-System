@@ -75,6 +75,7 @@ public class System extends Auction{
 		java.lang.System.out.println("2. Browse auction");
 		java.lang.System.out.println("3. Create account");
 		java.lang.System.out.println("4. Exit");
+		java.lang.System.out.println("0. printUsers");
 		int input = s.nextInt();
 		
 		switch(input) {
