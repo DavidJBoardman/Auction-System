@@ -12,7 +12,12 @@ public class Auction {
 	private Date closeDate;
 	private char status;
 		
-	
+	public Auction(double sPrice, double rPrice, Date closeDate, char status) {
+		this.startPrice = sPrice; this.reservePrice = rPrice; this.closeDate = closeDate; this.status = status;
+	}
+	public Auction(double sPrice, double rPrice, char status) {
+		this.startPrice = sPrice; this.reservePrice = rPrice;  this.status = status;
+	}
 	private double getStartPrice() {
 		return startPrice;
 	}
