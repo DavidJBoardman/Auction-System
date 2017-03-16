@@ -1,6 +1,10 @@
 package auctionSystem;
 
 import java.util.*;
+
+import users.Item;
+
+import java.awt.ItemSelectable;
 import java.text.*;
 
 public class System extends Auction{
@@ -8,8 +12,6 @@ public class System extends Auction{
 	public static void main(String[] args) {
 		
 		//these are the new auction and system objects we can use in this method.
-		System system = new System();
-		Auction auction = new Auction();
 		
 		//prints of the menu for the user
 		printMenu();	
@@ -37,14 +39,17 @@ public class System extends Auction{
 	}
 	
 	public static void browseAuction() {
-		Scanner s = new Scanner(java.lang.System.in);
+		
+		Scanner sc = new Scanner(java.lang.System.in);
 		
 		//needs to retrieve the database
-		AuctionDatabase a = new AuctionDatabase();
-		a.getArrayItems();
+		AuctionDatabase auctionDB = new AuctionDatabase();
+		auctionDB.printItems();
+		
+		java.lang.System.out.println(auctionDB.items);
 		
 		java.lang.System.out.println("Would you like to go back to the main menu? Y");
-		char input1 = s.next().charAt(0);
+		char input1 = sc.next().charAt(0);
 		if(input1 == 'Y'){
 			printMenu();
 		}
@@ -56,9 +61,9 @@ public class System extends Auction{
 				+ "Please enter your Username: \n");
 		String input = s.nextLine();
 		//new global array for the new user
-		
+
 		java.lang.System.out.println("Please enter your Password: \n");
-		String input1 = s.nextLine();
+		input = s.nextLine();
 		//new global array for the new user
 	}
 

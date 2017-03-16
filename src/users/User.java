@@ -17,4 +17,28 @@ public abstract class User {
             return false;
         }
 	}
+
+	
+	private String getUsername() {
+		return username;
+	}
+
+	private void setUsername(String username) {
+		this.username = username;
+	}
+
+	private String getPassword() {
+		return password;
+	}
+
+	private void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String toString() {
+		return ("Username: "+ this.getUsername() +
+	                    " Password: " + this.getPassword());
+	   }
+	
+	
 }
