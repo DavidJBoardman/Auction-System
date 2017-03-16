@@ -1,21 +1,34 @@
 package users;
 
 public class Item {
+	
+	private String name;
 	private String description;
 	
-	public Item (String description) {
+	public Item (String name, String description) {
+		this.name = name;
 		this.description = description;
 	}
-	
-	//Returns the description
-	public String getDescription() {
+
+	private String getDescription() {
 		return description;
 	}
-	
-    // Sets the Description of the item
-	public void setDescription(String description) {
+
+	private void setDescription(String description) {
 		this.description = description;
 	}
 	
+	private String getName() {
+		return name;
+	}
+
+	private void setName(String name) {
+		this.name = name;
+	}
 	
+	//http://stackoverflow.com/questions/13001427/printing-out-all-the-objects-in-array-list
+	@Override
+	public String toString() {
+	    return "Description: " + this.getDescription();
+	}
 }

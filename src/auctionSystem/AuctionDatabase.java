@@ -1,24 +1,32 @@
 package auctionSystem;
 
+import java.util.ArrayList;
+
+import users.Buyer;
 import users.Item;
+import users.Seller;
 import users.User;
 
 public final class AuctionDatabase {
-	private User[] arrayUsers;
-	private Item[] arrayItems;
-
+	
+    ArrayList<User> users = new ArrayList<User>();
+    ArrayList<Item> items = new ArrayList<Item>();
+    
+    
     public AuctionDatabase() {
-        arrayItems = new Item[4];
+    	
+        items.add(new Item ("Google Pixel","its a phone?"));
+        items.add(new Item ("Mattress","The bouncy type ( ͡° ͜ʖ ͡°)"));
+        items.add(new Item ("Samsung Galaxy Note 7","Now with exploding feautre, This feature will blow you away!"));
 
-        arrayItems[0] = new Item("Swimming pool");
-        arrayItems[1] = new Item("New �1 coin");
-        arrayItems[2] = new Item("Watch");
-        arrayItems[3] = new Item("Iphone");
+        users.add(new Seller ("David", "123"));
+        users.add(new Buyer ("Elliot", "321"));
+        
+    }
+    
+    public String printItems() {
+    	return items.toString();
     }
 
     
-    
-    public Item[] getArrayItems(){
-    	return arrayItems;
-    }
 }
