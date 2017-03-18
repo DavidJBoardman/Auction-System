@@ -7,7 +7,7 @@ public class MainSystem {
 
 	public static void main(String[] args) {
 		
-		//Starts thye system via the menu
+		//Starts the system via the menu
 		printMenu();
 	}
 	

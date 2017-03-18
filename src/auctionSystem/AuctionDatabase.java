@@ -17,9 +17,9 @@ public final class AuctionDatabase {
     
     public AuctionDatabase() {
     	
-        items.add(new Item ("Google Pixel","its a phone?"));
-        items.add(new Item ("Mattress","The bouncy type"));
-        items.add(new Item ("Samsung Galaxy Note 7","Now with exploding feautre, This feature will blow you away!"));
+        items.add(new Item ("Google Pixel","its a phone?",32,22));
+        items.add(new Item ("Mattress","The bouncy type",32,22));
+        items.add(new Item ("Samsung Galaxy Note 7","Now with exploding feautre, This feature will blow you away!",32,22));
 
         users.add(new Seller ("David", "123"));
         users.add(new Buyer ("Elliot", "321"));
