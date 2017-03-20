@@ -13,9 +13,9 @@ public class Auction {
 	private double reservePrice;
 	private Date sDate;
 	private Date eDate;
-	private char status;
+	private AuctionStates status;
 		
-	public Auction(double startPrice, double currentPrice, double reservePrice, Date sDate, Date eDate, char status) {
+	public Auction(double startPrice, double currentPrice, double reservePrice, Date sDate, Date eDate, AuctionStates status) {
 		this.startPrice = startPrice; 
 		this.currentPrice = currentPrice; 
 		this.reservePrice = reservePrice; 
@@ -64,11 +64,11 @@ public class Auction {
 		this.eDate = eDate;
 	}
 
-	private char getStatus() {
+	private AuctionStates getStatus() {
 		return status;
 	}
 
-	private void setStatus(char status) {
+	private void setStatus(AuctionStates status) {
 		this.status = status;
 	}
 
@@ -110,6 +110,6 @@ public class Auction {
 		cal.add(Calendar.DATE, +7);
 		Date date1 = cal.getTime();
 		String fromdate = dformat.format(date1);
-		setCloseDate(date1);
+		setEDate(date1);
 	}
 }

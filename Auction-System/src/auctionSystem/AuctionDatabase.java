@@ -19,9 +19,7 @@ public final class AuctionDatabase {
         users.add(new Seller ("David", "123"));
         users.add(new Buyer ("Elliot", "321"));
         
-        auctions.add(new Auction(sPrice, cPrice, rPrice, sDate, eDate, status));
-      //double sPrice, double rPrice, Date sDate, Date eDate, char status
-        
+        auctions.add(new Auction(10.00, null, 15.00, '2017-03-21', '2017-03-28', ONGOING));
     }
     
     public String printItems() {
