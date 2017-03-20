@@ -4,11 +4,14 @@ import java.util.*;
 public class MainSystem {
 	public static void main(String[] args) {
 		MainSystem app = new MainSystem();
-		
-		app.printMenu();
+		Boolean running = true;
+		while(running) {
+			app.printMenu();	
 		}
+	}
 	AuctionDatabase auctionDB = new AuctionDatabase();
 	Scanner sc = new Scanner(System.in);
+	
 	
 	private boolean found;
 	User user;
@@ -50,20 +53,35 @@ public class MainSystem {
 	}
 	
 	public void setupAccount() {
+		user = new User();
+
+			
 		System.out.println("Set up account: \n"
 				+ "Please enter your Username: \n");
 		String uname = sc.nextLine();
-		//new global array for the new user
+		
+		this.found = false;
+		while(found == false){
+			for(User u :  auctionDB.getUsers() ){
 
-		System.out.println("Please enter your Password: \n");
-		String pword = sc.nextLine();
-		//new global array for the new user
-		auctionDB.users.add(new Buyer (uname, pword));
+				if(!u.checkUsername(uname) && uname !=null){
+					System.out.println("Enter your password: ");
+					String pass = sc.nextLine();
+					auctionDB.users.add(new Buyer (uname, pass));
+					found = true;
+				}
+				else {
+					System.out.println("This Username already exists");
+				}
+				
+			}
+			
+		}
 		
 	}
 
 	public void printMenu(){
-
+		
 		System.out.println("Welcome to the Auction System! Please choose one of the options below\n");
 		System.out.println("1. Login into an account");
 		System.out.println("2. Browse auction");
@@ -74,7 +92,7 @@ public class MainSystem {
 		
 		switch(input) {
 		case 0:
-			auctionDB.printUsers();
+			System.out.println(auctionDB.users);
 			break;
 		case 1: 
 			//user accounts will be printed off here. 
@@ -88,7 +106,7 @@ public class MainSystem {
 			break;
 		case 4:
 			sc.close();
-			System.exit(0);
+
 		}
 
 			
@@ -99,12 +117,12 @@ public class MainSystem {
 		user = new User();
 		
 		System.out.println("Enter your username: ");
-		String user = sc.nextLine().toLowerCase();
+		String username = sc.nextLine().toLowerCase();
 
 		this.found = false;
 		while(found == false){
 			for(User u :  auctionDB.getUsers() ){
-				if(u.checkUsername(user)){
+				if(u.checkUsername(username)){
 					System.out.println("Enter your password: ");
 					String pass = sc.nextLine();
 					if(u.checkPassword(pass)){

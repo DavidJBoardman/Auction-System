@@ -1,8 +1,8 @@
 package auctionSystem;
 
 public class User {
-	public String username;
-	public String password;
+	protected String username;
+	protected String password;
 	
 	public User(String username, String password) {
 		this.username = username;
@@ -47,9 +47,9 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + "]";
-	}
+	    return "username: " + this.getUsername() + " password: " + this.getPassword();
 
+	}
 	
 	
 

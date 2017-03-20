@@ -17,11 +17,8 @@ public final class AuctionDatabase {
         items.add(new Item ("Samsung Galaxy Note 7","Now with exploding feautre, This feature will blow you away!",32,22));
 
         users.add(new Seller ("David", "123"));
-        users.add(new Buyer ("Elliot", "321"));
-        
-       
-      
-        
+        users.add(new Buyer ("Elliot", "321"));    
+              
     }
     
     public String printItems() {
