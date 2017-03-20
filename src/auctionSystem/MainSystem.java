@@ -1,4 +1,7 @@
 package auctionSystem;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 public class MainSystem {
@@ -23,11 +26,11 @@ public class MainSystem {
 		
 		
 		System.out.println("Please insert the start price \n" 
-				+ "£");
+				+ "Â£");
 		int input1 = sc.nextInt();
 		
 		System.out.println("Please insert the reserve price \n"
-				+ "£");
+				+ "Â£");
 		int input2 = sc.nextInt();
 		
 		System.out.println("The close date will be seven days from today\n ");
@@ -93,7 +96,7 @@ public class MainSystem {
 			break;
 		case 4:
 			sc.close();
-
+            System.exit(0);
 		}
 
 			
@@ -104,8 +107,7 @@ public class MainSystem {
 		user = new User();
 		
 		System.out.println("Enter your username: ");
-		String username = sc.nextLine().toLowerCase();
-
+		String username = sc.next().toUpperCase();
 		this.found = false;
 		while(found == false){
 			for(User u :  auctionDB.getUsers() ){
@@ -113,7 +115,9 @@ public class MainSystem {
 					System.out.println("Enter your password: ");
 					String pass = sc.next();
 					if(u.checkPassword(pass)){
-						System.out.println("You have been logged in");
+                        JOptionPane.showMessageDialog(null,"You are now Logged In");
+                        //TODO: Present Options (placeBid
+
 						found = true;
 					}
 					
