@@ -85,8 +85,8 @@ public class MainSystem {
 			System.out.println(auctionDB.users);
 			break;
 		case 1: 
-			//user accounts will be printed off here. 
-			login();
+			//user accounts will be printed off here.
+          	login();
 			break;
 		case 2: 
 			browseAuction();
