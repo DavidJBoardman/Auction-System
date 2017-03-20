@@ -6,15 +6,53 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Auction {
-	
-	private double startPrice;
-	private double reservePrice;
-	private Date closeDate;
-	private char status;
-		
-	public Auction(double sPrice, double rPrice, char status) {
-		this.startPrice = sPrice; this.reservePrice = rPrice;  this.status = status;
+	 
+    private double startPrice;
+    private double currentPrice;
+    private double reservePrice;
+    private Date sDate;
+    private Date eDate;
+    private char status;
+        
+    public Auction(double startPrice, double currentPrice, double reservePrice, Date sDate, Date eDate, char status) {
+        this.startPrice = startPrice; 
+        this.currentPrice = currentPrice; 
+        this.reservePrice = reservePrice; 
+        this.sDate = sDate; 
+        this.eDate = eDate; 
+        this.status = status;
+    }
+    
+    
+	private double getCurrentPrice() {
+		return currentPrice;
 	}
+
+
+	private void setCurrentPrice(double currentPrice) {
+		this.currentPrice = currentPrice;
+	}
+
+
+	private Date getsDate() {
+		return sDate;
+	}
+
+
+	private void setsDate(Date sDate) {
+		this.sDate = sDate;
+	}
+
+
+	private Date geteDate() {
+		return eDate;
+	}
+
+
+	private void seteDate(Date eDate) {
+		this.eDate = eDate;
+	}
+
 
 	private double getStartPrice() {
 		return startPrice;
@@ -30,14 +68,6 @@ public class Auction {
 
 	private void setReservePrice(double reservePrice) {
 		this.reservePrice = reservePrice;
-	}
-
-	private Date getCloseDate() {
-		return closeDate;
-	}
-
-	private void setCloseDate(Date closeDate) {
-		this.closeDate = closeDate;
 	}
 
 	private char getStatus() {
@@ -86,6 +116,6 @@ public class Auction {
 		cal.add(Calendar.DATE, +7);
 		Date date1 = cal.getTime();
 		String fromdate = dformat.format(date1);
-		setCloseDate(date1);
+		seteDate(date1);
 	}
 }

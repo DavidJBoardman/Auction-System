@@ -58,30 +58,17 @@ public class MainSystem {
 			
 		System.out.println("Set up account: \n"
 				+ "Please enter your Username: \n");
-		String uname = sc.nextLine();
-		
-		this.found = false;
-		while(found == false){
-			for(User u :  auctionDB.getUsers() ){
+		String newUsername = sc.next().toUpperCase();
+		//TODO: ADD validation so that duplicates of the username cannot be entered
+		System.out.println("Please enter a password: ");
+		String newPassword = sc.next();
+		auctionDB.users.add(new User(newUsername, newPassword));
 
-				if(!u.checkUsername(uname) && uname !=null){
-					System.out.println("Enter your password: ");
-					String pass = sc.nextLine();
-					auctionDB.users.add(new Buyer (uname, pass));
-					found = true;
-				}
-				else {
-					System.out.println("This Username already exists");
-				}
-				
-			}
-			
-		}
 		
 	}
 
 	public void printMenu(){
-		
+
 		System.out.println("Welcome to the Auction System! Please choose one of the options below\n");
 		System.out.println("1. Login into an account");
 		System.out.println("2. Browse auction");
@@ -124,7 +111,7 @@ public class MainSystem {
 			for(User u :  auctionDB.getUsers() ){
 				if(u.checkUsername(username)){
 					System.out.println("Enter your password: ");
-					String pass = sc.nextLine();
+					String pass = sc.next();
 					if(u.checkPassword(pass)){
 						System.out.println("You have been logged in");
 						found = true;
