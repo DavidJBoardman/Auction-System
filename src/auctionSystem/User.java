@@ -1,12 +1,15 @@
-package users;
+package auctionSystem;
 
-public abstract class User {
+public class User {
 	protected String username;
 	protected String password;
 	
 	public User(String username, String password) {
 		this.username = username;
 		this.password = password;
+	}
+	public User(){
+		
 	}
 	
 	public Boolean checkPassword(String userPassword) { 
@@ -19,7 +22,7 @@ public abstract class User {
 	}
 
 	
-	private String getUsername() {
+	public String getUsername() {
 		return username;
 	}
 
@@ -27,7 +30,7 @@ public abstract class User {
 		this.username = username;
 	}
 
-	private String getPassword() {
+	public String getPassword() {
 		return password;
 	}
 

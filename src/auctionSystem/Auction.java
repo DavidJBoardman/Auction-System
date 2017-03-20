@@ -1,9 +1,9 @@
 package auctionSystem;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
-
-import users.Buyer;
-import users.Item;
 
 public class Auction {
 	
@@ -12,12 +12,10 @@ public class Auction {
 	private Date closeDate;
 	private char status;
 		
-	public Auction(double sPrice, double rPrice, Date closeDate, char status) {
-		this.startPrice = sPrice; this.reservePrice = rPrice; this.closeDate = closeDate; this.status = status;
-	}
 	public Auction(double sPrice, double rPrice, char status) {
 		this.startPrice = sPrice; this.reservePrice = rPrice;  this.status = status;
 	}
+
 	private double getStartPrice() {
 		return startPrice;
 	}
@@ -78,5 +76,16 @@ public class Auction {
 
 	//Sets the auction to blocked so that it can no longer be bid on or viewed
 	public void setBlocked() {
+	}
+	
+	public void formatDate() {
+		Date date = new Date();
+		DateFormat dformat = new SimpleDateFormat("DD-MMM-YYYY");
+		String todate = dformat.format(date);
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, +7);
+		Date date1 = cal.getTime();
+		String fromdate = dformat.format(date1);
+		setCloseDate(date1);
 	}
 }

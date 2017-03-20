@@ -3,16 +3,11 @@ package auctionSystem;
 import java.util.ArrayList;
 import java.util.Date;
 
-import users.Buyer;
-import users.Item;
-import users.Seller;
-import users.User;
-
 public final class AuctionDatabase {
 	
     ArrayList<User> users = new ArrayList<User>();
     ArrayList<Item> items = new ArrayList<Item>();
-    ArrayList<Item> auctions = new ArrayList<Item>();
+    ArrayList<Auction> auctions = new ArrayList<Auction>();
     
     
     public AuctionDatabase() {
@@ -24,6 +19,7 @@ public final class AuctionDatabase {
         users.add(new Seller ("David", "123"));
         users.add(new Buyer ("Elliot", "321"));
         
+       
       
         
     }
@@ -31,6 +27,32 @@ public final class AuctionDatabase {
     public String printItems() {
     	return items.toString();
     }
+
+	ArrayList<User> getUsers() {
+		return users;
+	}
+
+	private void setUsers(ArrayList<User> users) {
+		this.users = users;
+	}
+
+	private ArrayList<Item> getItems() {
+		return items;
+	}
+
+	private void setItems(ArrayList<Item> items) {
+		this.items = items;
+	}
+
+	private ArrayList<Auction> getAuctions() {
+		return auctions;
+	}
+
+	private void setAuctions(ArrayList<Auction> auctions) {
+		this.auctions = auctions;
+	}
+    
+    
 
     
 }

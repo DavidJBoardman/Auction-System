@@ -1,18 +1,18 @@
 package auctionSystem;
 import java.util.*;
 
-import users.Buyer;
-
 public class MainSystem {
-
 	public static void main(String[] args) {
+		MainSystem app = new MainSystem();
 		
-		//Starts the system via the menu
-		printMenu();
-	}
+		app.printMenu();
+		}
 	
-	public static void placeAuction() { 
-		Scanner s = new Scanner(System.in);
+	Scanner s = new Scanner(System.in);
+	
+	private boolean found;
+	User user;
+		public void placeAuction() { 
 		Date date = new Date();
 		
 		String TDate = String.format("Current Date/Time : %tc", date );
@@ -34,7 +34,7 @@ public class MainSystem {
 	
 	
 	//Looks up the current autions and displays them to the user
-	public static void browseAuction() {
+	public void browseAuction() {
 		//Scanner to take in the 
 		Scanner sc = new Scanner(System.in);
 		
@@ -51,7 +51,7 @@ public class MainSystem {
 		}
 	}
 	
-	public static void setupAccount() {
+	public void setupAccount() {
 		AuctionDatabase auctionDB = new AuctionDatabase();
 		Scanner s = new Scanner(System.in);
 		System.out.println("Set up account: \n"
@@ -66,7 +66,9 @@ public class MainSystem {
 		
 	}
 
-	public static void printMenu(){ 
+	public void printMenu(){ 
+		AuctionDatabase auctionDB = new AuctionDatabase();
+
 		Scanner s = new Scanner(System.in);
 		
 		System.out.println("Welcome to the Auction System! Please choose one of the options below\n");
@@ -80,7 +82,7 @@ public class MainSystem {
 		switch(input) {
 		case 1: 
 			//user accounts will be printed off here. 
-			
+			login();
 			break;
 		case 2: 
 			browseAuction();
@@ -93,4 +95,40 @@ public class MainSystem {
 			System.exit(0);
 		}
 	}
+	
+	public void login(){
+		AuctionDatabase auctionDB = new AuctionDatabase();
+		user = new User();
+		
+		System.out.println("user");
+		String user = s.nextLine();
+		System.out.println("pass");
+		String pass = s.nextLine();
+		
+		this.found = false;
+		while(found == false){
+			for(User u :  auctionDB.getUsers() ){
+				if(user.getUsername().equals(user)){
+					if(user.checkPassword(pass)){
+						
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+
+
+	private boolean isFound() {
+		return found;
+	}
+
+
+	private void setFound(boolean found) {
+		this.found = found;
+	}
+	
 }
