@@ -27,6 +27,9 @@ public final class AuctionDatabase {
     public String printItems() {
     	return items.toString();
     }
+    public String printUsers() {
+    	return users.toString();
+    }
 
 	ArrayList<User> getUsers() {
 		return users;

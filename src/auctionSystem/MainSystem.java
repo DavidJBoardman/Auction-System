@@ -73,6 +73,9 @@ public class MainSystem {
 		int input = sc.nextInt();
 		
 		switch(input) {
+		case 0:
+			auctionDB.printUsers();
+			break;
 		case 1: 
 			//user accounts will be printed off here. 
 			login();
@@ -87,6 +90,8 @@ public class MainSystem {
 			sc.close();
 			System.exit(0);
 		}
+
+			
 	}
 	
 	public void login(){
@@ -96,7 +101,6 @@ public class MainSystem {
 		System.out.println("Enter your username: ");
 		String user = sc.nextLine().toLowerCase();
 
-		
 		this.found = false;
 		while(found == false){
 			for(User u :  auctionDB.getUsers() ){
