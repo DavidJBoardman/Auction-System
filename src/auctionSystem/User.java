@@ -20,6 +20,14 @@ public class User {
             return false;
         }
 	}
+	public Boolean checkUsername(String userusername) { 
+		if (username.equals(userusername)){
+            return true;
+        }
+        else {
+            return false;
+        }
+	}
 
 	
 	public String getUsername() {

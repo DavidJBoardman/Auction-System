@@ -7,7 +7,7 @@ public class MainSystem {
 		
 		app.printMenu();
 		}
-	
+	AuctionDatabase auctionDB = new AuctionDatabase();
 	Scanner s = new Scanner(System.in);
 	
 	private boolean found;
@@ -39,7 +39,6 @@ public class MainSystem {
 		Scanner sc = new Scanner(System.in);
 		
 		//needs to retrieve the database
-		AuctionDatabase auctionDB = new AuctionDatabase();
 		auctionDB.printItems();
 		
 		System.out.println(auctionDB.items);
@@ -52,7 +51,6 @@ public class MainSystem {
 	}
 	
 	public void setupAccount() {
-		AuctionDatabase auctionDB = new AuctionDatabase();
 		Scanner s = new Scanner(System.in);
 		System.out.println("Set up account: \n"
 				+ "Please enter your Username: \n");
@@ -66,9 +64,7 @@ public class MainSystem {
 		
 	}
 
-	public void printMenu(){ 
-		AuctionDatabase auctionDB = new AuctionDatabase();
-
+	public void printMenu(){
 		Scanner s = new Scanner(System.in);
 		
 		System.out.println("Welcome to the Auction System! Please choose one of the options below\n");
@@ -97,20 +93,22 @@ public class MainSystem {
 	}
 	
 	public void login(){
-		AuctionDatabase auctionDB = new AuctionDatabase();
+		
 		user = new User();
 		
-		System.out.println("user");
+		System.out.println("Enter your username: ");
 		String user = s.nextLine();
-		System.out.println("pass");
-		String pass = s.nextLine();
+
 		
 		this.found = false;
 		while(found == false){
 			for(User u :  auctionDB.getUsers() ){
-				if(user.getUsername().equals(user)){
-					if(user.checkPassword(pass)){
-						
+				if(u.checkUsername(user)){
+					System.out.println("Enter your password: ");
+					String pass = s.nextLine();
+					if(u.checkPassword(pass)){
+						System.out.println("It worked");
+						found = true;
 					}
 					
 				}
