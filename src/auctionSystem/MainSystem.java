@@ -8,7 +8,7 @@ public class MainSystem {
 		app.printMenu();
 		}
 	AuctionDatabase auctionDB = new AuctionDatabase();
-	Scanner s = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
 	
 	private boolean found;
 	User user;
@@ -21,11 +21,11 @@ public class MainSystem {
 		
 		System.out.println("Please insert the start price \n" 
 				+ "£");
-		int input1 = s.nextInt();
+		int input1 = sc.nextInt();
 		
 		System.out.println("Please insert the reserve price \n"
 				+ "£");
-		int input2 = s.nextInt();
+		int input2 = sc.nextInt();
 		
 		System.out.println("The close date will be seven days from today\n ");
 				System.out.println("\nStart Date:" + TDate);
@@ -36,7 +36,6 @@ public class MainSystem {
 	//Looks up the current autions and displays them to the user
 	public void browseAuction() {
 		//Scanner to take in the 
-		Scanner sc = new Scanner(System.in);
 		
 		//needs to retrieve the database
 		auctionDB.printItems();
@@ -51,29 +50,27 @@ public class MainSystem {
 	}
 	
 	public void setupAccount() {
-		Scanner s = new Scanner(System.in);
 		System.out.println("Set up account: \n"
 				+ "Please enter your Username: \n");
-		String uname = s.nextLine();
+		String uname = sc.nextLine();
 		//new global array for the new user
 
 		System.out.println("Please enter your Password: \n");
-		String pword = s.nextLine();
+		String pword = sc.nextLine();
 		//new global array for the new user
 		auctionDB.users.add(new Buyer (uname, pword));
 		
 	}
 
 	public void printMenu(){
-		Scanner s = new Scanner(System.in);
-		
+
 		System.out.println("Welcome to the Auction System! Please choose one of the options below\n");
 		System.out.println("1. Login into an account");
 		System.out.println("2. Browse auction");
 		System.out.println("3. Create account");
 		System.out.println("4. Exit");
 		System.out.println("0. printUsers");
-		int input = s.nextInt();
+		int input = sc.nextInt();
 		
 		switch(input) {
 		case 1: 
@@ -87,7 +84,7 @@ public class MainSystem {
 			setupAccount();
 			break;
 		case 4:
-			s.close();
+			sc.close();
 			System.exit(0);
 		}
 	}
@@ -97,7 +94,7 @@ public class MainSystem {
 		user = new User();
 		
 		System.out.println("Enter your username: ");
-		String user = s.nextLine();
+		String user = sc.nextLine().toLowerCase();
 
 		
 		this.found = false;
@@ -105,9 +102,9 @@ public class MainSystem {
 			for(User u :  auctionDB.getUsers() ){
 				if(u.checkUsername(user)){
 					System.out.println("Enter your password: ");
-					String pass = s.nextLine();
+					String pass = sc.nextLine();
 					if(u.checkPassword(pass)){
-						System.out.println("It worked");
+						System.out.println("You have been logged in");
 						found = true;
 					}
 					
